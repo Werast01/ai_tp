@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.DatePicker?>
+<TabPane prefHeight="780.0" prefWidth="1380.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.kpr.kyrs.Controllers.MainController">
+
+    <tabs>
+
+        <!-- ==================== ORDERS ==================== -->
+        <Tab text="%tab.orders">
+            <content>
+                <AnchorPane>
+                    <children>
+                        <VBox spacing="8.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+                            <children>
+
+                                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" top="8.0" />
+                                    </padding>
+
+                                    <children>
+                                        <Button fx:id="btnCreateRequest" text="%button.create.request" />
+                                        <Button fx:id="btnEditRequest" text="%button.edit.request" />
+                                        <Button fx:id="btnDeleteRequest" text="%button.delete.request" />
+
+                                        <Button fx:id="btnCreateClient" text="%button.create.client" />
+                                        <Button fx:id="btnEditClient" text="%button.edit.client" />
+                                        <Button fx:id="btnDeleteClient" text="%button.delete.client" />
+                                    </children>
+                                </HBox>
+
+                                <SplitPane dividerPositions="0.55" VBox.vgrow="ALWAYS">
+                                    <items>
+
+                                        <!-- REQUESTS -->
+                                        <VBox spacing="5.0">
+                                            <children>
+
+                                                <HBox alignment="CENTER_LEFT" spacing="8.0">
+                                                    <Label style="-fx-font-weight: bold;" text="%label.requests" />
+                                                    <TextField fx:id="searchRequests" promptText="%search.requests" HBox.hgrow="ALWAYS" />
+                                                </HBox>
+
+                                                <TableView fx:id="tableRequests" prefHeight="678.0" prefWidth="643.0" VBox.vgrow="ALWAYS">
+                                                    <columns>
+                                                        <TableColumn fx:id="colRequestId" prefWidth="60" text="%column.id" />
+                                                        <TableColumn fx:id="colClientName" prefWidth="180" text="%column.client" />
+                                                        <TableColumn fx:id="colExecutionDate" prefWidth="110" text="%column.date" />
+                                                        <TableColumn fx:id="colStartPoint" prefWidth="150" text="%column.from" />
+                                                        <TableColumn fx:id="colEndPoint" prefWidth="150" text="%column.to" />
+                                                        <TableColumn fx:id="colPersons" prefWidth="80" text="%column.persons" />
+                                                    </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                                </TableView>
+
+                                            </children>
+                                        </VBox>
+
+                                        <!-- CLIENTS -->
+                                        <VBox spacing="5.0">
+                                            <children>
+
+                                                <HBox alignment="CENTER_LEFT" spacing="8.0">
+                                                    <Label style="-fx-font-weight: bold;" text="%label.clients" />
+                                                    <TextField fx:id="searchClients" promptText="%search.clients" HBox.hgrow="ALWAYS" />
+                                                </HBox>
+
+                                                <TableView fx:id="tableClients" prefHeight="678.0" prefWidth="687.0" VBox.vgrow="ALWAYS">
+                                                    <columns>
+                                                        <TableColumn fx:id="colClientId" prefWidth="60" text="%column.id" />
+                                                        <TableColumn fx:id="colFullName" prefWidth="220" text="%column.fullname" />
+                                                        <TableColumn fx:id="colPhone" prefWidth="130" text="%column.phone" />
+                                                        <TableColumn fx:id="colEmail" prefWidth="190" text="%column.email" />
+                                                    </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                                </TableView>
+
+                                            </children>
+                                        </VBox>
+
+                                    </items>
+                                </SplitPane>
+
+                            </children>
+                        </VBox>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+
+        <!-- ==================== WORKERS ==================== -->
+        <Tab text="%tab.workers">
+            <content>
+                <AnchorPane>
+                    <children>
+
+                        <VBox spacing="8.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+                            <children>
+
+                                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" top="8.0" />
+                                    </padding>
+
+                                    <children>
+                                        <Button fx:id="btnCreateWorker" text="%button.create.worker" />
+                                        <Button fx:id="btnEditWorker" text="%button.edit.worker" />
+                                        <Button fx:id="btnDeleteWorker" text="%button.delete.worker" />
+
+                                        <Button fx:id="btnCreateDriver" text="%button.create.driver" />
+                                        <Button fx:id="btnEditDriver" text="%button.edit.driver" />
+                                        <Button fx:id="btnDeleteDriver" text="%button.delete.driver" />
+                                    </children>
+                                </HBox>
+
+                                <SplitPane dividerPositions="0.5" VBox.vgrow="ALWAYS">
+                                    <items>
+
+                                        <VBox spacing="5.0">
+                                            <children>
+
+                                                <HBox alignment="CENTER_LEFT" spacing="8.0">
+                                                    <Label style="-fx-font-weight: bold;" text="%label.workers" />
+                                                    <TextField fx:id="searchWorkers" promptText="%search.workers" HBox.hgrow="ALWAYS" />
+                                                </HBox>
+
+                                                <TableView fx:id="tableWorkers" VBox.vgrow="ALWAYS">
+                                                    <columns>
+                                                        <TableColumn fx:id="colWorkerId" prefWidth="60" text="%column.id" />
+                                                        <TableColumn fx:id="colWorkerFIO" prefWidth="220" text="%column.fullname" />
+                                                        <TableColumn fx:id="colPosition" prefWidth="160" text="%column.position" />
+                                                        <TableColumn fx:id="colWorkerPhone" prefWidth="130" text="%column.phone" />
+                                                        <TableColumn fx:id="colWorkerEmail" prefWidth="180" text="%column.email" />
+                                                    </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                                </TableView>
+
+                                            </children>
+                                        </VBox>
+
+                                        <VBox spacing="5.0">
+                                            <children>
+
+                                                <HBox alignment="CENTER_LEFT" spacing="8.0">
+                                                    <Label style="-fx-font-weight: bold;" text="%label.drivers" />
+                                                    <TextField fx:id="searchDrivers" promptText="%search.drivers" HBox.hgrow="ALWAYS" />
+                                                </HBox>
+
+                                                <TableView fx:id="tableDrivers" VBox.vgrow="ALWAYS">
+                                                    <columns>
+                                                        <TableColumn fx:id="colDriverId" text="%column.id" />
+                                                        <TableColumn fx:id="colDriverFIO" text="%column.fullname" />
+                                                        <TableColumn fx:id="colLicense" text="%column.license" />
+                                                        <TableColumn fx:id="colDriverPhone" text="%column.phone" />
+                                                    </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                                </TableView>
+
+                                            </children>
+                                        </VBox>
+
+                                    </items>
+                                </SplitPane>
+
+                            </children>
+                        </VBox>
+
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+
+        <!-- ==================== CARS ==================== -->
+        <Tab text="%tab.cars">
+            <content>
+                <AnchorPane>
+                    <children>
+
+                        <VBox spacing="8.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+                            <children>
+
+                                <Accordion VBox.vgrow="ALWAYS">
+
+                                    <panes>
+
+                                        <TitledPane animated="false" text="%label.cars">
+                                            <content>
+                                                <VBox spacing="6.0">
+
+                                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                                        <Button fx:id="btnCreateCar" text="%button.create.car" />
+                                                        <Button fx:id="btnEditCar" text="%button.edit.car" />
+                                                        <Button fx:id="btnDeleteCar" text="%button.delete.car" />
+                                                        <TextField fx:id="searchCars" promptText="%search.cars" />
+                                                    </HBox>
+
+                                                    <TableView fx:id="tableCars" VBox.vgrow="ALWAYS">
+                                                        <columns>
+                                                            <TableColumn fx:id="colCarId" text="%column.id" />
+                                                            <TableColumn fx:id="colCarMarka" text="%column.marka" />
+                                                            <TableColumn fx:id="colCarModel" text="%column.model" />
+                                                            <TableColumn fx:id="colCarGosNumber" text="%column.gosnumber" />
+                                                            <TableColumn fx:id="colCarYear" text="%column.year" />
+                                                            <TableColumn fx:id="colCarVin" text="%column.vin" />
+                                                            <TableColumn fx:id="colCarCondition" text="%column.condition" />
+                                                            <TableColumn fx:id="colCarCapacity" text="%column.capacity" />
+                                                            <TableColumn fx:id="colCarFuelNorm" prefWidth="120" text="%column.fuelnorm"/>
+                                                        </columns>
+                                          <columnResizePolicy>
+                                             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                          </columnResizePolicy>
+                                                    </TableView>
+
+                                                </VBox>
+                                            </content>
+                                        </TitledPane>
+
+                                        <TitledPane animated="false" text="%label.inspections">
+                                            <content>
+                                                <VBox spacing="6.0">
+
+                                                    <HBox spacing="10.0">
+                                                        <Button fx:id="btnCreateInspection" text="%button.create.inspection" />
+                                                        <Button fx:id="btnEditInspection" text="%button.edit.inspection" />
+                                                        <Button fx:id="btnDeleteInspection" text="%button.delete.inspection" />
+                                                        <TextField fx:id="searchInspections" promptText="%search.inspections" />
+                                                    </HBox>
+
+                                                    <TableView fx:id="tableInspections">
+                                                        <columns>
+                                                            <TableColumn fx:id="colInspectionId" text="%column.id" />
+                                                            <TableColumn fx:id="colInspectionCar" text="%column.car" />
+                                                            <TableColumn fx:id="colInspectionDate" text="%column.date" />
+                                                            <TableColumn fx:id="colInspectionMechanic" text="%column.mechanic" />
+                                                            <TableColumn fx:id="colInspectionResult" text="%column.result" />
+                                                        </columns>
+                                          <columnResizePolicy>
+                                             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                          </columnResizePolicy>
+                                                    </TableView>
+
+                                                </VBox>
+                                            </content>
+                                        </TitledPane>
+
+                                        <TitledPane animated="false" text="%label.repairs">
+                                            <content>
+                                                <VBox spacing="6.0">
+
+                                                    <HBox spacing="10.0">
+                                                        <Button fx:id="btnCreateRepair" text="%button.create.repair" />
+                                                        <Button fx:id="btnEditRepair" text="%button.edit.repair" />
+                                                        <Button fx:id="btnDeleteRepair" text="%button.delete.repair" />
+                                                        <TextField fx:id="searchRepairs" promptText="%search.repairs" />
+                                                    </HBox>
+
+                                                    <TableView fx:id="tableRepairs">
+                                                        <columns>
+                                                            <TableColumn fx:id="colRepairId" text="%column.id" />
+                                                            <TableColumn fx:id="colRepairCar" text="%column.car" />
+                                                            <TableColumn fx:id="colRepairDate" text="%column.date" />
+                                                            <TableColumn fx:id="colRepairMechanic" text="%column.mechanic" />
+                                                            <TableColumn fx:id="colRepairResult" text="%column.result" />
+                                                        </columns>
+                                          <columnResizePolicy>
+                                             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                          </columnResizePolicy>
+                                                    </TableView>
+
+                                                </VBox>
+                                            </content>
+                                        </TitledPane>
+
+                                    </panes>
+                                </Accordion>
+
+                            </children>
+                        </VBox>
+
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+
+        <!-- ==================== TRIPS ==================== -->
+        <Tab text="%tab.trips">
+            <content>
+                <AnchorPane>
+                    <children>
+
+                        <VBox prefHeight="751.0" prefWidth="1380.0" spacing="8.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+
+                                <HBox spacing="10.0">
+                                    <padding>
+                                        <Insets left="10" right="10" top="8" />
+                                    </padding>
+
+                                    <children>
+                                        <Button fx:id="btnCreateTrip" text="%button.create.trip" />
+                                        <Button fx:id="btnEditTrip" text="%button.edit.trip" />
+                                        <Button fx:id="btnDeleteTrip" text="%button.delete.trip" />
+                                        <Button fx:id="btnCompleteTrip" text="%button.complete.trip" />
+                                        <TextField fx:id="searchTrips" promptText="%search.trips" />
+                                    </children>
+                                </HBox>
+
+                                <TableView fx:id="tableTrips" VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn fx:id="colTripId" prefWidth="101.0" text="%column.id" />
+                                        <TableColumn fx:id="colTripDriver" prefWidth="59.0" text="%column.driver" />
+                                        <TableColumn fx:id="colTripCar" text="%column.car" />
+                                        <TableColumn fx:id="colTripStartPoint" text="%column.from" />
+                                        <TableColumn fx:id="colTripEndPoint" text="%column.to" />
+                                        <TableColumn fx:id="colTripStartDateTime" text="%column.start" />
+                                        <TableColumn fx:id="colTripEndDateTime" text="%column.end" />
+                                        <TableColumn fx:id="colTripMileage" text="%column.mileage" />
+                                        <TableColumn fx:id="colTripFuel" prefWidth="135.0" text="%column.fuel" />
+                                    </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                                </TableView>
+
+                            </children>
+                        </VBox>
+
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+
+        <!-- ==================== ADDRESSES ==================== -->
+        <Tab text="%tab.addresses">
+            <content>
+                <AnchorPane>
+                    <children>
+
+                        <VBox prefHeight="751.0" prefWidth="1380.0" spacing="8.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+
+                                <HBox spacing="10.0">
+                                    <padding>
+                                        <Insets left="10" right="10" top="8" />
+                                    </padding>
+
+                                    <children>
+                                        <Button fx:id="btnCreateAddress" text="%button.create.address" />
+                                        <Button fx:id="btnEditAddress" text="%button.edit.address" />
+                                        <Button fx:id="btnDeleteAddress" text="%button.delete.address" />
+                                        <TextField fx:id="searchAddresses" promptText="%search.addresses" />
+                                    </children>
+                                </HBox>
+
+                                <TableView fx:id="tableAddresses" prefHeight="747.0" prefWidth="1380.0">
+                                    <columns>
+                                        <TableColumn fx:id="colAddressId" prefWidth="92.0" text="%column.id" />
+                                        <TableColumn fx:id="colAddressTown" minWidth="0.0" prefWidth="273.0" text="%column.town" />
+                                        <TableColumn fx:id="colAddressStreet" prefWidth="240.0" text="%column.street" />
+                                        <TableColumn fx:id="colAddressHouse" prefWidth="306.0" text="%column.house" />
+                                    </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                                </TableView>
+
+                            </children>
+                        </VBox>
+
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+
+        <!-- ==================== LANGUAGE ==================== -->
+        <Tab text="%tab.additional">
+            <content>
+                <AnchorPane>
+                    <children>
+                        <VBox spacing="15.0" style="-fx-padding: 15;"
+                              AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0"
+                              AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0">
+
+                            <!-- Переключение языка -->
+                            <HBox spacing="10.0" style="-fx-padding: 8; -fx-background-color: #f0f0f0; -fx-border-color: #cccccc; -fx-border-width: 1;">
+                                <Label text="%label.language" style="-fx-font-weight: bold;"/>
+                                <Button fx:id="btnLangRu" text="%button.lang.ru"/>
+                                <Button fx:id="btnLangEn" text="%button.lang.en"/>
+                                <Button fx:id="btnLangDe" text="%button.lang.de"/>
+                            </HBox>
+
+                            <!-- Отчёт: расход топлива -->
+                            <VBox spacing="8.0" style="-fx-padding: 10; -fx-border-color: #aaaaaa; -fx-border-width: 1;">
+                                <Label text="%report.fuel.title"
+                                       style="-fx-font-weight: bold; -fx-font-size: 13;"/>
+
+                                <HBox spacing="10.0" alignment="CENTER_LEFT">
+                                    <Label text="%report.period.from"/>
+                                    <DatePicker fx:id="reportDateFrom" prefWidth="140"/>
+
+                                    <Label text="%report.period.to"/>
+                                    <DatePicker fx:id="reportDateTo" prefWidth="140"/>
+
+                                    <Button fx:id="btnBuildReport"
+                                            text="%report.build"/>
+                                </HBox>
+
+                                <TableView fx:id="tableFuelReport" prefHeight="200">
+                                    <columns>
+                                        <TableColumn fx:id="colReportCar"
+                                                     prefWidth="180"
+                                                     text="%report.car"/>
+
+                                        <TableColumn fx:id="colReportMileage"
+                                                     prefWidth="110"
+                                                     text="%report.mileage"/>
+
+                                        <TableColumn fx:id="colReportFuelUsed"
+                                                     prefWidth="120"
+                                                     text="%report.fuel.used"/>
+
+                                        <TableColumn fx:id="colReportFuelNorm"
+                                                     prefWidth="120"
+                                                     text="%report.fuel.norm"/>
+
+                                        <TableColumn fx:id="colReportOverflow"
+                                                     prefWidth="130"
+                                                     text="%report.fuel.overflow"/>
+                                    </columns>
+                                </TableView>
+                            </VBox>
+
+                            <!-- Отчёт: пробег по водителям -->
+                            <VBox spacing="8.0" style="-fx-padding: 10; -fx-border-color: #aaaaaa; -fx-border-width: 1;">
+                                <Label text="%report.driver.title"
+                                       style="-fx-font-weight: bold; -fx-font-size: 13;"/>
+
+                                <HBox spacing="10.0" alignment="CENTER_LEFT">
+                                    <Label text="%report.period.from"/>
+                                    <DatePicker fx:id="reportDriverDateFrom" prefWidth="140"/>
+
+                                    <Label text="%report.period.to"/>
+                                    <DatePicker fx:id="reportDriverDateTo" prefWidth="140"/>
+
+                                    <Button fx:id="btnBuildDriverReport"
+                                            text="%report.build"/>
+                                </HBox>
+
+                                <TableView fx:id="tableDriverReport" prefHeight="200">
+                                    <columns>
+                                        <TableColumn fx:id="colDriverReportName"
+                                                     prefWidth="220"
+                                                     text="%report.driver"/>
+
+                                        <TableColumn fx:id="colDriverReportTrips"
+                                                     prefWidth="100"
+                                                     text="%report.trips"/>
+
+                                        <TableColumn fx:id="colDriverReportMileage"
+                                                     prefWidth="120"
+                                                     text="%report.mileage"/>
+
+                                        <TableColumn fx:id="colDriverReportFuel"
+                                                     prefWidth="120"
+                                                     text="%report.fuel"/>
+                                    </columns>
+                                </TableView>
+                            </VBox>
+
+                        </VBox>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+
+    </tabs>
+
+</TabPane>

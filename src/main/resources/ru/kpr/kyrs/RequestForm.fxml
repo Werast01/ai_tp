@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="15.0"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1">
+
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label fx:id="titleLabel"
+           text="%request.title"
+           style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+
+    <GridPane hgap="10.0" vgap="10.0">
+
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" hgrow="NEVER" prefWidth="120" />
+            <ColumnConstraints hgrow="ALWAYS" prefWidth="300" />
+        </columnConstraints>
+
+        <Label text="%request.client" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <ComboBox fx:id="clientComboBox" promptText="Выберите клиента"
+                  GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+        <Label text="%request.date" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <DatePicker fx:id="executionDatePicker"
+                    GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <Label text="%request.start" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <ComboBox fx:id="startPointComboBox" promptText="Выберите адрес"
+                  GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+        <Label text="%request.end" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <ComboBox fx:id="endPointComboBox" promptText="Выберите адрес"
+                  GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+        <Label text="%request.persons" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <Spinner fx:id="personsSpinner"
+                 editable="true"
+                 min="1"
+                 max="100"
+                 initialValue="1"
+                 GridPane.columnIndex="1"
+                 GridPane.rowIndex="4" />
+
+    </GridPane>
+
+    <HBox alignment="CENTER_RIGHT" spacing="10.0">
+
+        <Button fx:id="btnSave"
+                text="%button.save"
+                onAction="#save"
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
+
+        <Button fx:id="btnCancel"
+                text="%button.cancel"
+                onAction="#cancel" />
+
+    </HBox>
+
+</VBox>

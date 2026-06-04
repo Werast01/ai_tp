@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="15.0"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1">
+
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label fx:id="titleLabel"
+           text="%trip.title"
+           style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+
+    <GridPane hgap="10.0" vgap="10.0">
+
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" hgrow="NEVER" prefWidth="160" />
+            <ColumnConstraints hgrow="ALWAYS" prefWidth="300" />
+        </columnConstraints>
+
+        <Label text="%trip.driver" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <ComboBox fx:id="driverComboBox" promptText="Выберите водителя"
+                  GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+        <Label text="%trip.car" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <ComboBox fx:id="carComboBox" promptText="Выберите автомобиль"
+                  GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <Label text="%trip.start" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <ComboBox fx:id="startPointComboBox" promptText="Выберите адрес"
+                  GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+        <Label text="%trip.end" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <ComboBox fx:id="endPointComboBox" promptText="Выберите адрес"
+                  GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+        <Label text="%trip.fuel.before" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <Spinner fx:id="fuelBeforeSpinner"
+                 editable="true"
+                 min="0"
+                 max="9999"
+                 initialValue="0"
+                 GridPane.columnIndex="1"
+                 GridPane.rowIndex="4" />
+
+        <Label text="%trip.fuel.after" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+        <Spinner fx:id="fuelAfterSpinner"
+                 editable="true"
+                 min="0"
+                 max="9999"
+                 initialValue="0"
+                 GridPane.columnIndex="1"
+                 GridPane.rowIndex="5" />
+
+        <Label text="%trip.start.date" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+        <DatePicker fx:id="startDatePicker"
+                    GridPane.columnIndex="1"
+                    GridPane.rowIndex="6" />
+
+        <Label text="%trip.mileage.before" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+        <Spinner fx:id="mileageBeforeSpinner"
+                 editable="true"
+                 min="0"
+                 max="9999999"
+                 initialValue="0"
+                 GridPane.columnIndex="1"
+                 GridPane.rowIndex="7" />
+
+        <Label text="%trip.mileage.after" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+        <Spinner fx:id="mileageAfterSpinner"
+                 editable="true"
+                 min="0"
+                 max="9999999"
+                 initialValue="0"
+                 GridPane.columnIndex="1"
+                 GridPane.rowIndex="8" />
+
+    </GridPane>
+
+    <HBox alignment="CENTER_RIGHT" spacing="10.0">
+
+        <Button fx:id="btnSave"
+                text="%button.save"
+                onAction="#save"
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
+
+        <Button fx:id="btnCancel"
+                text="%button.cancel"
+                onAction="#cancel" />
+
+    </HBox>
+
+</VBox>
